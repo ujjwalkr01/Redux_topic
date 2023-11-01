@@ -6,6 +6,9 @@ const Counter = () => {
   const dispatch = useDispatch();
 
   //-> useSelector hook allows us to extract data from the redux store state for use in component...
+  /*and if there is any change between the prevState and current state then it will re-render the component else 
+  it stays the same */
+
   const counter = useSelector((state) => state.count);
 
   const incrementHandler = () => {
