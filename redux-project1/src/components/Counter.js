@@ -1,12 +1,31 @@
-import classes from './Counter.module.css';
+import classes from "./Counter.module.css";
+import { useSelector, useDispatch } from "react-redux";
 
 const Counter = () => {
+  //-->usedispatch hook returns a refrence to the dispatch function from the redux store and can use it as dispatch actions as needed...
+  const dispatch = useDispatch();
+
+  //-> useSelector hook allows us to extract data from the redux store state for use in component...
+  const counter = useSelector((state) => state.count);
+
+  const incrementHandler = () => {
+    dispatch({ type: "increment" });
+  };
+
+  const decrementHandler = () => {
+    dispatch({ type: "decrement" });
+  };
+
   const toggleCounterHandler = () => {};
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      <div className={classes.value}>-- COUNTER VALUE --</div>
+      <div className={classes.value}>{counter}</div>
+      <div>
+        <button onClick={incrementHandler}>Increment</button>
+        <button onClick={decrementHandler}>Decrement</button>
+      </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>
   );
