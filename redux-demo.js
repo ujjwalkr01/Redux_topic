@@ -1,4 +1,4 @@
-//first--> we have to install redux package,@reduxjs/toolkit package..
+//first--> we have to install redux package,@reduxjs/toolkit package..and for react specific we have to install redux react-redux package.. as redux is not react specific
 // And then we can import in either way using import as well or like the below mentioned way...
 const redux = require("redux");
 
