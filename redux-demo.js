@@ -4,9 +4,18 @@ const redux = require("redux");
 
 /*third--> we have to create the reducer function that will hold the prevState and action as parameter and then will return the current updated state */
 const counterReducer = (state = { count: 0 }, action) => {
-  return {
-    count: state.count + 1,
-  };
+  if (action.type === "increment") {
+    return {
+      count: state.count + 1,
+    };
+  }
+  if (action.type === "decrement") {
+    return {
+      count: state.count - 1,
+    };
+  }
+
+  return state;
 };
 
 /*second--> we have to create the store which will hold all the  reducer function and for that we have to use leagacy_createStore and we can use that by installing the library @reduxjs/toolkit*/
@@ -26,3 +35,4 @@ store.subscribe(counterSubscriber);
 --> using dispatch method our subscriber method will get executed...
 */
 store.dispatch({ type: "increment" });
+store.dispatch({ type: "decrement" });
